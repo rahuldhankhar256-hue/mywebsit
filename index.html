@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Video Website</title>
+<style>
+body{
+font-family: Arial;
+text-align: center;
+background:#f2f2f2;
+}
+.box{
+background:white;
+padding:20px;
+margin:40px;
+border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Video Player</h2>
+
+<input type="text" id="videolink" placeholder="Paste video link here" style="width:80%;padding:10px;">
+<br><br>
+
+<button onclick="playVideo()">Open Video</button>
+
+<p id="msg"></p>
+
+<video id="player" width="300" controls style="display:none;"></video>
+
+</div>
+
+<script>
+function playVideo(){
+let link=document.getElementById("videolink").value;
+
+if(link==""){
+alert("Paste video link first");
+return;
+}
+
+document.getElementById("msg").innerText="Ad running... please wait 10 seconds";
+
+setTimeout(function(){
+document.getElementById("msg").innerText="Video Started";
+let player=document.getElementById("player");
+player.src=link;
+player.style.display="block";
+player.play();
+},10000);
+
+}
+</script>
+
+</body>
+</html>
